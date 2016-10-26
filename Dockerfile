@@ -1,9 +1,11 @@
-FROM ubuntu:latest
+FROM ubuntu:14.04
 
 MAINTAINER <brianorwhatever@gmail.com>
 
-# update apt and install packages
-RUN apt-get update
-RUN apt-get install -y tmux less
+RUN apt-get update && apt-get install -y sudo
+ADD scripts/* /scripts/
 
-CMD tmux new -s deep
+CMD bash
+#RUN /scripts/install-gpu.sh
+
+#CMD tmux new -s deep
