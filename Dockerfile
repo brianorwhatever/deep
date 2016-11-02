@@ -47,16 +47,24 @@ RUN echo '{\n\
 #RUN cp include/* /usr/local/cuda/include/
 
 # configure jupyter
+RUN cd ~/
 RUN ~/anaconda2/bin/jupyter notebook --generate-config
 #RUN jupass=`~/anaconda2/bin/python -c "from notebook.auth import passwd; print(passwd())"`
-#RUN echo "c.NotebookApp.password = u'"$jupass"'" >> .jupyter/jupyter_notebook_config.py
+#RUN echo "c.NotebookApp.password = u'dl_course'" >> .jupyter/jupyter_notebook_config.py
 #RUN echo "c.NotebookApp.ip = '*'\n\
 #c.NotebookApp.open_browser = False" >> .jupyter/jupyter_notebook_config.py
-#RUN mkdir ~/nbs
+RUN mkdir ~/nbs
+RUN cd ~/nbs
+
+ADD conf/.tmux.conf /root/
+
+EXPOSE 8888
+
+CMD tmux new -s deep 
 
 #ADD scripts/* /scripts/
 
 #CMD bash
 #RUN /scripts/install-gpu.sh
 
-#CMD tmux new -s deep
+#CMD jupyter notebook
