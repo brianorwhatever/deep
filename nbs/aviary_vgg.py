@@ -21,15 +21,15 @@ def set_trainable():
         layer.trainable=True
 
 def run():
-    vgg.model.optimizer.lr = 0.0001
+    vgg.model.optimizer.lr = 0.00001
     vgg.fit(batches, val_batches, nb_epoch=5)
-    vgg.model.optimizer.lr = 0.0005
+    vgg.model.optimizer.lr = 0.0001
     vgg.fit(batches, val_batches, nb_epoch=5)
     vgg.model.optimizer.lr = 0.001
     vgg.fit(batches, val_batches, nb_epoch=5)
-    vgg.model.optimizer.lr = 0.005
-    vgg.fit(batches, val_batches, nb_epoch=5)
     vgg.model.optimizer.lr = 0.01
+    vgg.fit(batches, val_batches, nb_epoch=5)
+    vgg.model.optimizer.lr = 0.1
     vgg.fit(batches, val_batches, nb_epoch=5)
 
 def save(file):
@@ -38,4 +38,4 @@ def save(file):
 # init
 set_trainable()
 run()
-save(path+'results/aviary_vgg_002.h5')
+save(path+'results/aviary_vgg_003.h5')
