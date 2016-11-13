@@ -21,16 +21,14 @@ def set_trainable():
         layer.trainable=True
 
 def run():
-    vgg.model.optimizer.lr = 0.00001
-    vgg.fit(batches, val_batches, nb_epoch=5)
     vgg.model.optimizer.lr = 0.0001
-    vgg.fit(batches, val_batches, nb_epoch=5)
+    vgg.fit(batches, val_batches, nb_epoch=8)
     vgg.model.optimizer.lr = 0.001
     vgg.fit(batches, val_batches, nb_epoch=5)
     vgg.model.optimizer.lr = 0.01
     vgg.fit(batches, val_batches, nb_epoch=5)
     vgg.model.optimizer.lr = 0.1
-    vgg.fit(batches, val_batches, nb_epoch=5)
+    vgg.fit(batches, val_batches, nb_epoch=8)
 
 def save(file):
     vgg.model.save_weights(file)
