@@ -1,5 +1,5 @@
-#path = "data/state-farm/"
-path = "data/state-farm/sample/"
+path = "data/state-farm/"
+#path = "data/state-farm/sample/"
 import utils; reload(utils)
 from utils import *
 
