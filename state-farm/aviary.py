@@ -1,7 +1,7 @@
 from theano.sandbox import cuda
 
-#path = "data/state-farm/"
-path = "../nbs/data/state-farm/sample/"
+path = "../nbs/data/state-farm/"
+#path = "../nbs/data/state-farm/sample/"
 import utils; reload(utils)
 from utils import *
 from IPython.display import FileLink
